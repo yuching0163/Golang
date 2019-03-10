@@ -1,0 +1,47 @@
+{{template "header"}}
+    <title>進貨明細</title>
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        {{template "navbar" .}}
+      </div>
+    </div>
+
+    <div class="container">
+    </br>
+    </br>
+
+    <h1>進貨明細</h1>
+
+	<table class="table table-striped" style="word-break:break-all; word-wrap:break-all;">
+        <thead>
+          <tr>
+            <th>產品類型</th>
+            <th>產品名稱</th>
+            <th>產品型號</th>
+            <th>製造商</th>
+            <th>進貨成本</th>
+            <th>進貨數量</th>
+            <th>訂單時間</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+          {{range.Imports}}
+          <th>{{.Type}}</th>
+          <th>{{.Name}}</th>
+          <th>{{.Model}}</th>
+          <th>{{.Manufacturer}}</th>
+          <th>{{.Cost}}</th>
+          <th>{{.Import}}</th>
+          <th>{{.ImportCreated}}</th>
+          </tr>
+          {{end}}
+        </tbody>
+    </table>
+	 </div>
+   </body>
+</html>

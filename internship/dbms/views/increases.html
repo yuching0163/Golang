@@ -1,0 +1,113 @@
+{{template "header"}}
+    <title>新增商品</title>
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        {{template "navbar" .}}
+      </div>
+    </div>
+
+	<div class="container">
+    </br>
+    </br>
+
+    <h1>新增商品</h1>
+    <div class="pull-left" style="width: 170px; margin-top:10px;">
+      <form method="post" action="/increases">
+      	<div class="form-group">
+      	<label>產品類型</label>
+        <select class="form-control" style="width: 100px" name="original">
+  		<option value="原料">原料</option>
+ 	  	<option value="半成品">半成品</option>
+ 	  	<option value="完成品">完成品</option>
+	    </select>
+		</div>
+	</div>
+
+	<div class="pull-left" style="width: 170px; margin-top:10px;">
+      	<div class="form-group">
+      	<label>產品名稱</label>
+        <div class="form-group" style="width:100px">
+    	<input class="form-control" name="name">
+  		</div>
+		</div>
+	</div>
+
+	<div class="pull-left" style="width: 170px; margin-top:10px;">
+      	<div class="form-group">
+      	<label>產品型號</label>
+        <div class="form-group" style="width:100px">
+    	<input type="text" class="form-control" name="model">
+  		</div>
+		</div>
+	</div>
+
+	<div class="pull-left" style="width: 170px; margin-top:10px;">
+      	<div class="form-group">
+      	<label>進貨成本</label>
+        <div class="form-group" style="width:100px">
+    	<input type="text" class="form-control" name="cost">
+  		</div>
+		</div>
+	</div>
+
+    <div class="pull-left" style="width: 170px; margin-top:10px;">
+      	<div class="form-group">
+      	<label>售價</label>
+        <div class="form-group" style="width:100px">
+    	<input type="text" class="form-control" name="exportnumber">
+  		</div>
+		</div>
+	</div>
+
+	<div class="pull-left" style="width: 120px; margin-top:35px;">
+      	<input type="hidden" name="op" value="add">
+		<button type="submit" class="btn btn-default" onclick="return checkInput();">確認</button>
+	  </form>
+	</div>
+	<script type="text/javascript">
+        function checkInput(){
+          var name = document.getElementById("name");
+          if(name.value.length == 0){
+            alert("請輸入產品名稱");
+            return false;
+          }
+            return true;
+          }
+    </script>
+	<table class="table table-striped" style="word-break:break-all; word-wrap:break-all;">
+        <thead>
+          <tr>
+            <th>產品類型</th>
+            <th>產品名稱</th>
+            <th>產品型號</th>
+            <th>進貨成本</th>
+            <th>售價</th>
+            <th>進貨</th>
+            <th>更改</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          {{range.Managements}}
+          <th>{{.Type}}</th>
+          <th>{{.Name}}</th>
+          <th>{{.Model}}</th>
+          <th>{{.Cost}}</th>
+          <th>{{.Price}}</th>
+          <th>
+            <a href="/import/modify?tid={{.Id}}">進貨</a>
+          </th>
+          <th>
+            <a href="/increases?op=del&id={{.Id}}">刪除</a>
+          </th>
+          </tr>
+            {{end}}
+        </tbody>
+    </table>
+    </div>
+
+    </body>
+</html>

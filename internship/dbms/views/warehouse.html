@@ -1,0 +1,44 @@
+{{template "header"}}
+    <title>庫存管理</title>
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        {{template "navbar" .}}
+      </div>
+    </div>
+
+	<div class="container">
+    </br>
+    </br>
+
+    <h1>庫存管理</h1>
+    <table class="table table-striped" style="word-break:break-all; word-wrap:break-all;">
+        <thead>
+          <tr>
+            <th>產品類型</th>
+            <th>產品名稱</th>
+            <th>產品型號</th>
+            <th>庫存數量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          {{range.Managements}}
+          <th>{{.Type}}</th>
+          <th>{{.Name}}</th>
+          <th>{{.Model}}</th>
+          <th>{{.Stock}}</th>
+          <th>
+            <a href="/export/modify?tid={{.Id}}">出貨</a>
+          </th>
+          </tr>
+          {{end}}
+
+        </tbody>
+    </table>
+	</div>
+
+    </body>
+</html>

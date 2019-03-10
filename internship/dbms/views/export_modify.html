@@ -1,0 +1,77 @@
+{{template "header"}}
+    <title>進貨商品</title>
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        {{template "navbar" .}}
+      </div>
+    </div>
+
+	<div class="container">
+    </br>
+    </br>
+
+    <h1>出貨商品</h1>
+    <div class="pull-left" style="width: 170px; margin-top:10px;">
+      <form method="post" action="/export">
+        <input type="hidden" name="id" class="form-control" value="{{.Management.Id}}">
+        <input type="hidden" name="export" class="form-control" value="{{.Management.Stock}}">
+        <div class="form-group">
+        <label>產品類型</label>
+          <div style="width: 100px;">
+          <input type="text" name="types" class="form-control" value="{{.Management.Type}}">
+          </div>
+    </div>
+  </div>
+
+  <div class="pull-left" style="width: 170px; margin-top:10px;">
+        <div class="form-group">
+        <label>產品名稱</label>
+          <div style="width: 100px;">
+          <input type="text" name="names" class="form-control" value="{{.Management.Name}}">
+          </div>
+    </div>
+  </div>
+
+  <div class="pull-left" style="width: 170px; margin-top:10px;">
+      <div class="form-group">
+        <label>產品型號</label>
+          <div style="width: 100px;">
+          <input type="text" name="modelss" class="form-control" value="{{.Management.Model}}">
+          </div>
+    </div>
+  </div>
+
+  <div class="pull-left" style="width: 170px; margin-top:10px;">
+        <div class="form-group">
+        <label>售價</label>
+          <div style="width: 100px;">
+          <input type="text" name="prices" class="form-control" value="{{.Management.Price}}">
+          </div>
+    </div>
+  </div>
+
+  <div class="pull-left" style="width: 170px; margin-top:10px;">
+      <div class="form-group">
+        <label>出貨數量</label>
+        <div class="form-group" style="width:100px">
+        <input type="text" name="exports" class="form-control" >
+        </div>
+      </div>
+  </div>
+
+  <div class="pull-left" style="width: 120px; margin-top:35px;">
+      
+      <button type="submit" class="btn btn-default" onclick="return checkInput();">確認</button>
+
+     </form>
+  </div>
+
+
+    </form>
+
+  </div>
+  </body>
+</html>
